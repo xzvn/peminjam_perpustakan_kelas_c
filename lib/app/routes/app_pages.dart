@@ -51,5 +51,10 @@ class AppPages {
       page: () => const AddPeminjamanView(),
       binding: AddPeminjamanBinding(),
     ),
+    GetPage(
+      name: _Paths.ADD_BOOK,
+      page: () => const AddPeminjamanView(),
+      binding: AddPeminjamanBinding(),
+    ),
   ];
 }

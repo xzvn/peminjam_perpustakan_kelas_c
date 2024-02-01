@@ -6,7 +6,7 @@ import '../../../data/provider/api_provider.dart';
 import 'package:peminjam_perpustakaan_kelas_c/app/data/constant/endpoint.dart';
 import 'package:peminjam_perpustakaan_kelas_c/app/data/provider/api_provider.dart';
 import 'package:dio/dio.dart' as dio;
-import 'package:peminjam_perpustakaan_kelas_c/app/modules/book/controllers/login_controller.dart';
+import 'package:peminjam_perpustakaan_kelas_c/app/modules/login//controllers/login_controller.dart';
 
 class RegisterController extends GetxController {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
