@@ -13,6 +13,7 @@ class PeminjamanView extends GetView<PeminjamanController> {
         appBar: AppBar(
           title: const Text('PeminjamanView'),
           centerTitle: true,
+          backgroundColor: Colors.teal,
         ),
         body: controller.obx((state) => ListView.separated(
           itemCount: state!.length,
@@ -20,7 +21,7 @@ class PeminjamanView extends GetView<PeminjamanController> {
             DataPinjam dataPinjam = state[index];
             return ListTile(
               title: Text("Peminjaman"),
-              subtitle: Text("Buku: ${dataPinjam.book?.judul}\nTanggal Pinjam: ${dataPinjam.tanggalPinjam}\nTanggal Kembali: ${dataPinjam.tanggalKembali}\nStatus: ${dataPinjam.status} "),
+              subtitle: Text("Buku: ${dataPinjam.book?.judul}\nTanggal Pinjam: ${dataPinjam.tanggalPinjam}\nTanggal Kembali: ${dataPinjam.tanggalKembali} "),
             trailing: Text ("${dataPinjam.status}")
             );
           },

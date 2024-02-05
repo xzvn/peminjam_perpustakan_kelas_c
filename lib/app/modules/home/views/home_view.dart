@@ -12,7 +12,7 @@ class HomeView extends GetView<HomeController> {
       appBar: AppBar(
         title: const Text('HomeView'),
         centerTitle: true,
-        backgroundColor: Colors.blue, // Set the app bar background color
+        backgroundColor: Colors.teal,  // Set the app bar background color
       ),
       body: Center(
         child: Column(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:date_time_picker/date_time_picker.dart';
 import 'package:get/get.dart';
 
 import '../controllers/add_peminjaman_controller.dart';
@@ -19,46 +19,37 @@ class AddPeminjamanView extends GetView<AddPeminjamanController> {
             children: [
               Text('Buku yang dipinjam : ${Get.parameters['judul']}'),
               // DateTimePicker
-              TextFormField(
-                  controller: controller.tanggal_pinjamController,
-                  decoration: InputDecoration(
-                    hintText: "Masukan Tanggal Pinjam",
-                  ),
-                  validator: (value) {
-                    if (value!.length < 2) {
-                      return "Tanggal pinjam tidak boleh kosong";
-                    }
-                    return null;
-                  },
-                  onTap: () async {
-                    DateTime? selectedDate = await showDatePicker(
-                      context: context,
-                      initialDate: DateTime.now(),
-                      firstDate: DateTime.now(),
-                      lastDate: DateTime(2100),
-                    );
-                  }),
-              TextFormField(
-                  // obscureText: true,
-                  controller: controller.tanggal_kembaliController,
-                  decoration: InputDecoration(
-                    hintText: "Masukan Tanggal Kembali",
-                  ),
-                  validator: (value) {
-                    if (value!.length < 2) {
-                      return " Tanggal kembali tidak boleh kosong";
-                    }
-                    return null;
-                  },
-                  onTap: () async {
-                    DateTime? selectedDate = await showDatePicker(
-                      context: context,
-                      initialDate: DateTime.now(),
-                      firstDate: DateTime.now(),
-                      lastDate: DateTime(2100),
-                    );
-                  }),
-              Obx(() => controller.loading.value
+              DateTimePicker(
+                icon: Icon(Icons.date_range_outlined),
+                controller: controller.tanggal_pinjamController,
+                firstDate: DateTime(2000),
+                lastDate: DateTime(2100),
+                dateLabelText: 'Pilih tanggal pinjam',
+                dateMask: 'yyyy-MM-dd',
+                onChanged: (val) => print(val),
+                validator: (val) {
+                  print(val);
+                  return null;
+                },
+                onSaved: (val) => print(val),
+              ),
+
+              DateTimePicker(
+                icon: Icon(Icons.date_range_outlined),
+                controller: controller.tanggal_kembaliController,
+                firstDate: DateTime(2000),
+                lastDate: DateTime(2100),
+                dateLabelText: 'Pilih tanggal kembali',
+                dateMask: 'yyyy-MM-dd',
+                onChanged: (val) => print(val),
+                validator: (val) {
+                  print(val);
+                  return null;
+                },
+                onSaved: (val) => print(val),
+              ),
+              SizedBox(height: 20,),
+              Obx(()  => controller.loading.value
                   ? CircularProgressIndicator()
                   : ElevatedButton(
                       onPressed: () {

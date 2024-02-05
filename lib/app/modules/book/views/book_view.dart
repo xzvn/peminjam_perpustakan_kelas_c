@@ -16,6 +16,7 @@ class BookView extends GetView<BookController> {
         appBar: AppBar(
           title: const Text('BookView'),
           centerTitle: true,
+          backgroundColor: Colors.teal,
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () => Get.toNamed(Routes.ADD_BOOK),
@@ -36,7 +37,12 @@ class BookView extends GetView<BookController> {
                       'id': (dataBook.id ?? 0).toString(),
                       'judul': dataBook.judul ?? '-'
                     })
-                , child: Text("Pinjam"),),
+                ,
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.orange, // Set the button background color
+                        onPrimary: Colors.white, // Set the button text color
+                      ),
+                      child: Text("Pinjam"),),
                 );
               },
               separatorBuilder: (context, index) => Divider(),

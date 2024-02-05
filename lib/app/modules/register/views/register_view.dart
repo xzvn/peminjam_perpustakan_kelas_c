@@ -11,6 +11,7 @@ class RegisterView extends GetView<RegisterController> {
       appBar: AppBar(
         title: const Text('RegisterView'),
         centerTitle: true,
+        backgroundColor: Colors.teal,
       ),
       body: Center(
           child: Form(
